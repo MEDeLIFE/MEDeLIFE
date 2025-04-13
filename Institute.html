@@ -1,0 +1,110 @@
+<html>
+  <head>
+    <title>Register as Institute</title>
+    <style>
+      body {
+        font-family: tahoma;
+        background-color: #e9ebee;
+      }
+      #box {
+        width: 60%;
+        margin: 50px auto;
+        background-color: white;
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      }
+      #title {
+        font-size: 200%;
+        text-align: center;
+        color: white;
+        background-color: #5271ff;
+        padding: 10px;
+        border-radius: 5px;
+        margin-bottom: 20px;
+      }
+      .bar {
+        width: 100%;
+        margin-bottom: 15px;
+        display: flex;
+        align-items: center;
+      }
+      .bar input {
+        width: 70%; 
+        padding: 10px;
+        border: 1px solid black;
+        border-radius: 5px;
+      }
+      .bar-name {
+        width: 25%;
+        padding: 10px;
+        text-align: left;
+      }
+      #final-bar {
+        background-color: #00bf63;
+        border: none;
+        color: white;
+        padding: 15px;
+        width: 100%;
+        border-radius: 20px;
+        font-size: 18px;
+        text-align: center;
+      }
+      .password-bar {
+        display: flex;
+        align-items: center;
+      }
+      .password-bar .eye {
+        cursor: pointer;
+        margin-left: 10px;
+      }
+    </style>
+    <script>
+      function togglePassword() {
+        const passwordField = document.getElementById('password');
+        const confirmPasswordField = document.getElementById('confirm_password');
+        const type = passwordField.type === 'password' ? 'text' : 'password';
+        passwordField.type = type;
+        confirmPasswordField.type = type;
+      }
+    </script>
+  </head>
+  <body>
+    <div id="box">
+      <div id="title">Register as Institute</div>
+      <form>
+        <div class="bar">
+          <div class="bar-name">Name of Institution</div>
+          <input type="text" name="institution_name">
+        </div>
+        <div class="bar">
+          <div class="bar-name">License/Reg. No.</div>
+          <input type="text" name="license">
+        </div>
+        <div class="bar">
+          <div class="bar-name">Email</div>
+          <input type="email" name="email">
+        </div>
+        <div class="bar">
+          <div class="bar-name">Phone</div>
+          <input type="text" name="phone">
+        </div>
+        <div class="bar">
+          <div class="bar-name">Address</div>
+          <input type="text" name="address">
+        </div>
+        <div class="bar password-bar">
+          <div class="bar-name">Password</div>
+          <input type="password" name="password" id="password">
+          <span class="eye" onclick="togglePassword()">👁</span>
+        </div>
+        <div class="bar password-bar">
+          <div class="bar-name">Confirm Password</div>
+          <input type="password" name="confirm_password" id="confirm_password">
+          <span class="eye" onclick="togglePassword()">👁</span>
+        </div>
+        <div id="final-bar">Register</div>
+      </form>
+    </div>
+  </body>
+</html>

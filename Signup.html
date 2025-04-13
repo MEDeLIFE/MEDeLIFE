@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Sign Up</title>
+    <style>
+        body {
+            background-color: #f2f4f7;
+            font-family: Tahoma, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        #box {
+            width: 60%;
+            margin: 50px auto;
+            background-color: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        #title {
+            font-size: 200%;
+            text-align: center;
+            color: white;
+            background-color: #105ecc;
+            padding: 10px;
+            border-radius: 5px;
+            margin-bottom: 20px;
+        }
+        .bar {
+            width: 100%;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+        }
+        .bar-name {
+            width: 25%;
+            padding: 10px;
+            text-align: left;
+        }
+        .bar input {
+            width: 70%;
+            padding: 10px;
+            border: 1px solid black;
+            border-radius: 5px;
+            box-sizing: border-box; /* Ensure padding and border are included in the width */
+        }
+        .password-bar {
+            position: relative;
+            display: flex;
+            align-items: center;
+        }
+        .password-bar .eye {
+            position: absolute;
+            right: 15px; /* Adjusted to move the eye icon inside the input */
+            top: 50%;
+            transform: translateY(-50%);
+            cursor: pointer;
+            z-index: 1; /* Ensure the eye icon is above the input */
+        }
+        .phone-bar {
+            display: flex;
+            align-items: center;
+            width: 100%;
+        }
+        .phone-bar input {
+            width: 70%;
+            padding: 10px;
+            border: 1px solid black;
+            border-radius: 5px;
+            box-sizing: border-box; /* Ensure padding and border are included in the width */
+        }
+        .phone-bar .send-button {
+            background-color: #00bf63;
+            color: white;
+            padding: 10px;
+            border-radius: 5px;
+            text-align: center;
+            cursor: pointer;
+            margin-left: 10px;
+        }
+        #final-bar {
+            background-color: #00bf63;
+            border: none;
+            color: white;
+            padding: 15px;
+            width: 100%;
+            border-radius: 20px;
+            font-size: 18px;
+            text-align: center;
+            margin-top: 10px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div id="box">
+        <div id="title">Sign Up</div>
+        <form id="signup-form">
+            <div class="bar">
+                <div class="bar-name">Name</div>
+                <input type="text" name="name" id="name" required>
+            </div>
+            <div class="bar">
+                <div class="bar-name">Passport/NID no</div>
+                <input type="text" name="passport" id="passport" required>
+            </div>
+            <div class="bar">
+                <div class="bar-name">Email</div>
+                <input type="email" name="email" id="email" required>
+            </div>
+            <div class="bar phone-bar">
+                <div class="bar-name">Phone</div>
+                <input type="text" name="phone" id="phone" required>
+                <div class="send-button">Send</div>
+            </div>
+            <div class="bar">
+                <div class="bar-name">Phone Verification Code</div>
+                <input type="text" name="verification_code" id="verification_code" required>
+            </div>
+            <div class="bar password-bar">
+                <div class="bar-name">Password</div>
+                <input type="password" name="password" id="password" required>
+                <span class="eye" onclick="togglePassword()">👁</span>
+            </div>
+            <div class="bar password-bar">
+                <div class="bar-name">Confirm Password</div>
+<input type="password" name="confirm_password" id="confirm_password" required>
+                <span class="eye" onclick="togglePassword()">👁</span>
+            </div>
+            <div id="final-bar" onclick="submitForm()">Sign Up</div>
+        </form>
+    </div>
+
+   <script>
+    function togglePassword() {
+        const passwordField = document.getElementById('password');
+        const confirmPasswordField = document.getElementById('confirm_password');
+        const type = passwordField.type === 'password' ? 'text' : 'password';
+        passwordField.type = type;
+        confirmPasswordField.type = type;
+    }
+
+    function submitForm() {
+        // Get form values
+        const name = document.getElementById('name').value.trim();
+        const passport = document.getElementById('passport').value.trim();
+        const email = document.getElementById('email').value.trim();
+        const phone = document.getElementById('phone').value.trim();
+        const verificationCode = document.getElementById('verification_code').value.trim();
+        const password = document.getElementById('password').value;
+        const confirmPassword = document.getElementById('confirm_password').value;
+
+        // Simple validation
+        if (!name || !passport || !email || !phone || !verificationCode || !password || !confirmPassword) {
+            alert("Please fill in all fields!");
+            return;
+        }
+
+        // Check if passwords match
+        if (password !== confirmPassword) {
+            alert("Passwords do not match!");
+            return;
+        }
+
+        // Store user data in localStorage
+        const userData = {
+            name: name,
+            passport: passport,
+            email: email,
+            phone: phone,
+            verificationCode: verificationCode
+        };
+        
+        console.log("Storing user data:", userData);
+        
+        localStorage.setItem('userData', JSON.stringify(userData));
+
+        // Redirect to profile page
+        window.location.href = "profile.html";
+    }
+</script>
+</body>
+</html>

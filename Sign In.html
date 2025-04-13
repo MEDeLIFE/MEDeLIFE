@@ -1,0 +1,93 @@
+<html>
+  <head>
+    <title>Sign In</title>
+    <style>
+      body {
+        background-color: #f2f4f7;
+        font-family: tahoma;
+      }
+      #box {
+        width: 60%;
+        margin: 50px auto;
+        background-color: white;
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      }
+      #title {
+        font-size: 200%;
+        text-align: center;
+        color: white;
+        background-color: #105ecc;
+        padding: 10px;
+        border-radius: 5px;
+        margin-bottom: 20px;
+      }
+      .bar {
+        width: 100%;
+        margin-bottom: 15px;
+        display: flex;
+        align-items: center;
+      }
+      .bar input {
+        width: 70%; 
+        padding: 10px;
+        border: 1px solid black;
+        border-radius: 5px;
+      }
+      .bar-name {
+        width: 25%;
+        padding: 10px;
+        text-align: left;
+      }
+      #final-bar {
+        background-color: #00bf63;
+        border: none;
+        color: white;
+        padding: 15px;
+        width: 100%;
+        border-radius: 20px;
+        font-size: 18px;
+        text-align: center;
+        margin-top: 10px; 
+      }
+      .password-bar {
+        display: flex;
+        align-items: center;
+        width: 100%;
+      }
+      .password-bar input {
+        width: 70%; 
+      }
+      .password-bar .eye {
+        cursor: pointer;
+        margin-left: 10px; 
+      }
+    </style>
+  </head>
+  <body>
+    <div id="box">
+      <div id="title">Sign In</div>
+      <form>
+        <div class="bar">
+          <div class="bar-name">Passport/NID/Email/Phone</div>
+          <input type="text" name="identifier">
+        </div>
+        <div class="bar password-bar">
+          <div class="bar-name">Password</div>
+          <input type="password" name="password" id="password">
+          <span class="eye" onclick="togglePassword()">👁</span>
+        </div>
+        <div id="final-bar">Sign In</div>
+      </form>
+    </div>
+
+    <script>
+      function togglePassword() {
+        const passwordField = document.getElementById('password');
+        const type = passwordField.type === 'password' ? 'text' : 'password';
+        passwordField.type = type;
+      }
+    </script>
+  </body>
+</html>

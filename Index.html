@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MEDeLIFE</title>
+    <style>
+        /* General Styles */
+        body {
+            font-family: tahoma;
+            background-color: #e9ebee;
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Top Bar */
+        #bar {
+            height: 100px;
+            background-color: #105ecc;
+            color: white;
+            padding: 4px;
+            text-align: center;
+            position: relative;
+        }
+
+        #bar div {
+            font-size: 40px;
+        }
+
+        #sign_in {
+            background-color: #00bf63;
+            width: 100px;
+            text-align: center;
+            padding: 10px;
+            border-radius: 4px;
+            float: left;
+            margin: 10px;
+            cursor: pointer;
+            display: inline;
+        }
+
+        .red { color: red; }
+        .green { color: #00bf63; }
+        .black { color: black; }
+
+        /* Create Account Box */
+        #create-account-box {
+            width: 60%;
+            margin: 50px auto;
+            background-color: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        #create-account-title {
+            font-size: 200%;
+            text-align: center;
+            color: white;
+            background-color: #00bf63;
+            padding: 10px;
+            border-radius: 5px;
+            margin-bottom: 20px;
+        }
+
+        .option-bar {
+            width: 90%;
+            margin: 0 auto 15px;
+            padding: 15px;
+            border-radius: 5px;
+            cursor: pointer;
+            color: white;
+            font-size: 18px;
+            text-align: center;
+        }
+
+        .option-bar:hover {
+            opacity: 0.9;
+        }
+
+        #institute { background-color: #5271ff; color: black; }
+        #doctor { background-color: white; color: black; border: 1px solid #ccc; }
+        #pharmacy { background-color: #ff3131; color: black; }
+        #personal { background-color: #87ceeb; color: black; }
+    </style>
+</head>
+<body>
+    <!-- Top Bar -->
+    <div id="bar">
+        <div>
+            <span class="red">MED</span><span class="black">e</span><span class="green">LIFE</span>
+        </div>
+        <div id="sign_in">
+            <a href="signin.html" style="color: white; text-decoration: none;">Sign In</a>
+        </div>
+    </div>
+
+    <!-- Create Account Box -->
+    <div id="create-account-box">
+        <div id="create-account-title">Create Account</div>
+        
+        <!-- Updated to anchor tags for easier navigation -->
+        <a href="institute.html">
+            <div id="institute" class="option-bar">Register as Institute</div>
+        </a>
+        <a href="doctor.html">
+            <div id="doctor" class="option-bar">Doctor</div>
+        </a>
+        <a href="pharmacy.html">
+            <div id="pharmacy" class="option-bar">Pharmacy</div>
+        </a>
+        <a href="signup.html">
+            <div id="personal" class="option-bar">Personal</div>
+        </a>
+    </div>
+</body>
+</html>
